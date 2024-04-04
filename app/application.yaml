@@ -1,15 +1,19 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: myapp
-  namespace: argocd
+  name: myapp-deployment
 spec:
-  project: default
-  source:
-    repoURL: https://github.com/your-username/argocd-repo.git
-    path: applications/myapp
-    targetRevision: HEAD
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: default
-
+  selector:
+    matchLabels:
+      app: myapp
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: myapp
+        image: sushant4073/sush_2133:latest
+        ports:
+        - containerPort: 5000
