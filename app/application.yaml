@@ -12,7 +12,7 @@ spec:
       labels:
         app: myapp
     spec:
-      containers
+      containers:
       - name: myapp
         image: sushant4073/sush_2133:latest
         ports:
