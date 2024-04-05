@@ -6,13 +6,13 @@ spec:
   selector:
     matchLabels:
       app: myapp
-  replicas: 1
+  replicas: 3
   template:
     metadata:
       labels:
         app: myapp
     spec:
-      containers:
+      containers
       - name: myapp
         image: sushant4073/sush_2133:latest
         ports:
