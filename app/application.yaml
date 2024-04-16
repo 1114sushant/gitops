@@ -20,7 +20,7 @@ spec:
 
 ---
 
-apiVersion: batch/v1
+apiVersion: apps/v1
 kind: Job
 metadata:
   name: postsync-hook
