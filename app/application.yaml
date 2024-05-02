@@ -18,15 +18,6 @@ spec:
         ports:
         - containerPort: 5000
 
-  project: default
-  source:
-    repoURL: https://github.com/your-username/argocd-repo.git
-    path: applications/myapp
-    targetRevision: HEAD
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: default
-
 ---
 apiVersion: batch/v1
 kind: Job
