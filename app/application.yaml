@@ -17,3 +17,28 @@ spec:
         image: sushant4073/sush_2133:latest
         ports:
         - containerPort: 5000
+
+  project: default
+  source:
+    repoURL: https://github.com/your-username/argocd-repo.git
+    path: applications/myapp
+    targetRevision: HEAD
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: postsync-hook
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+spec:
+  template:
+    spec:
+      containers:
+        - name: postsync-job-success
+          image: ubuntu
+          command:
+            - /bin/bash
